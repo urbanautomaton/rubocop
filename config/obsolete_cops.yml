@@ -101,3 +101,7 @@ Lint/DefEndAlignment: >-
 Performance/HashEachMethods: >-
   The `Performance/HashEachMethods` cop has been removed since it no longer
   provides performance benefits in modern rubies.
+
+Performance/RangeInclude: >-
+  The `Performance/RangeInclude` cop has been removed since it no longer
+  provides performance benefits in modern rubies.

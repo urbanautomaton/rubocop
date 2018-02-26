@@ -980,11 +980,6 @@ Performance/LstripRstrip:
   Description: 'Use `strip` instead of `lstrip.rstrip`.'
   Enabled: true
 
-Performance/RangeInclude:
-  Description: 'Use `Range#cover?` instead of `Range#include?`.'
-  Reference: 'https://github.com/JuanitoFatas/fast-ruby#cover-vs-include-code'
-  Enabled: true
-
 Performance/RedundantBlockCall:
   Description: 'Use `yield` instead of `block.call`.'
   Reference: 'https://github.com/JuanitoFatas/fast-ruby#proccall-and-block-arguments-vs-yieldcode'

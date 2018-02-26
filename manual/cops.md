@@ -303,7 +303,6 @@ In the following section you find all available cops:
 * [Performance/FixedSize](cops_performance.md#performancefixedsize)
 * [Performance/FlatMap](cops_performance.md#performanceflatmap)
 * [Performance/LstripRstrip](cops_performance.md#performancelstriprstrip)
-* [Performance/RangeInclude](cops_performance.md#performancerangeinclude)
 * [Performance/RedundantBlockCall](cops_performance.md#performanceredundantblockcall)
 * [Performance/RedundantMatch](cops_performance.md#performanceredundantmatch)
 * [Performance/RedundantMerge](cops_performance.md#performanceredundantmerge)
