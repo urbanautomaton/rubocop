@@ -22,197 +22,6 @@ module RuboCop
     OBSOLETE_RUBIES = { 1.9 => '0.50', 2.0 => '0.50' }.freeze
     RUBY_VERSION_FILENAME = '.ruby-version'.freeze
     DEFAULT_RAILS_VERSION = 5.0
-    OBSOLETE_COPS = {
-      'Style/TrailingComma' =>
-        'The `Style/TrailingComma` cop no longer exists. Please use ' \
-        '`Style/TrailingCommaInArguments`, ' \
-        '`Style/TrailingCommaInArrayLiteral`, and/or ' \
-        '`Style/TrailingCommaInHashLiteral` instead.',
-      'Style/TrailingCommaInLiteral' =>
-        'The `Style/TrailingCommaInLiteral` cop no longer exists. Please use ' \
-        '`Style/TrailingCommaInArrayLiteral` and/or ' \
-        '`Style/TrailingCommaInHashLiteral` instead.',
-      'Rails/DefaultScope' =>
-        'The `Rails/DefaultScope` cop no longer exists.',
-      'Lint/InvalidCharacterLiteral' =>
-        'The `Lint/InvalidCharacterLiteral` cop has been removed since it ' \
-        'was never being actually triggered.',
-      'Style/SingleSpaceBeforeFirstArg' =>
-        'The `Style/SingleSpaceBeforeFirstArg` cop has been renamed to ' \
-        '`Layout/SpaceBeforeFirstArg`.',
-      'Lint/RescueWithoutErrorClass' =>
-        'The `Lint/RescueWithoutErrorClass` cop has been replaced by ' \
-        '`Style/RescueStandardError`.',
-      'Lint/SpaceBeforeFirstArg' =>
-        'The `Lint/SpaceBeforeFirstArg` cop has been removed, since it was a ' \
-        'duplicate of `Layout/SpaceBeforeFirstArg`. Please use ' \
-        '`Layout/SpaceBeforeFirstArg` instead.',
-      'Layout/SpaceAfterControlKeyword' =>
-        'The `Layout/SpaceAfterControlKeyword` cop has been removed. Please ' \
-        'use `Layout/SpaceAroundKeyword` instead.',
-      'Layout/SpaceBeforeModifierKeyword' =>
-        'The `Layout/SpaceBeforeModifierKeyword` cop has been removed. ' \
-        'Please use `Layout/SpaceAroundKeyword` instead.',
-      'Style/SpaceAfterControlKeyword' =>
-        'The `Style/SpaceAfterControlKeyword` cop has been removed. Please ' \
-        'use `Layout/SpaceAroundKeyword` instead.',
-      'Style/SpaceBeforeModifierKeyword' =>
-        'The `Style/SpaceBeforeModifierKeyword` cop has been removed. Please ' \
-        'use `Layout/SpaceAroundKeyword` instead.',
-      'Style/MethodCallParentheses' =>
-        'The `Style/MethodCallParentheses` cop has been renamed to ' \
-          '`Style/MethodCallWithoutArgsParentheses`.',
-      'Lint/Eval' =>
-        'The `Lint/Eval` cop has been renamed to `Security/Eval`.',
-      'Style/DeprecatedHashMethods' =>
-        'The `Style/DeprecatedHashMethods` cop has been renamed to ' \
-          '`Style/PreferredHashMethods`.',
-      'Style/AccessorMethodName' =>
-        'The `Style/AccessorMethodName` cop has been moved to ' \
-          '`Naming/AccessorMethodName`.',
-      'Style/AsciiIdentifiers' =>
-        'The `Style/AsciiIdentifiers` cop has been moved to ' \
-          '`Naming/AccessorMethodName`.',
-      'Style/OpMethod' =>
-        'The `Style/OpMethod` cop has been renamed and moved to ' \
-          '`Naming/BinaryOperatorParameterName`.',
-      'Style/ClassAndModuleCamelCase' =>
-        'The `Style/ClassAndModuleCamelCase` cop has been renamed to ' \
-          '`Naming/ClassAndModuleCamelCase`.',
-      'Style/ConstantName' =>
-        'The `Style/ConstantName` cop has been renamed to ' \
-          '`Naming/ConstantName`.',
-      'Style/FileName' =>
-        'The `Style/FileName` cop has been renamed to `Naming/FileName`.',
-      'Style/MethodName' =>
-        'The `Style/MethodName` cop has been renamed to ' \
-          '`Naming/MethodName`.',
-      'Style/PredicateName' =>
-        'The `Style/PredicateName` cop has been renamed to ' \
-          '`Naming/PredicateName`.',
-      'Style/VariableName' =>
-        'The `Style/VariableName` cop has been renamed to ' \
-          '`Naming/VariableName`.',
-      'Style/VariableNumber' =>
-        'The `Style/VariableNumber` cop has been renamed to ' \
-          '`Naming/VariableNumber`.',
-      'Lint/BlockAlignment' =>
-        'The `Lint/BlockAlignment` cop has been renamed to ' \
-          '`Layout/BlockAlignment`.',
-      'Lint/EndAlignment' =>
-        'The `Lint/EndAlignment` cop has been renamed to ' \
-          '`Layout/EndAlignment`.',
-      'Lint/DefEndAlignment' =>
-        'The `Lint/DefEndAlignment` cop has been renamed to ' \
-          '`Layout/DefEndAlignment`.',
-      'Performance/HashEachMethods' =>
-        'The `Performance/HashEachMethods` cop has been removed ' \
-          'since it no longer provides performance benefits in ' \
-          'modern rubies.'
-    }.freeze
-
-    OBSOLETE_PARAMETERS = [
-      {
-        cop: 'Layout/SpaceAroundOperators',
-        parameter: 'MultiSpaceAllowedForOperators',
-        alternative: 'If your intention was to allow extra spaces ' \
-                     'for alignment, please use AllowForAlignment: ' \
-                     'true instead.'
-      },
-      {
-        cop: 'Style/Encoding',
-        parameter: 'EnforcedStyle',
-        alternative: 'Style/Encoding no longer supports styles. ' \
-                     'The "never" behavior is always assumed.'
-      },
-      {
-        cop: 'Style/Encoding',
-        parameter: 'SupportedStyles',
-        alternative: 'Style/Encoding no longer supports styles. ' \
-                     'The "never" behavior is always assumed.'
-      },
-      {
-        cop: 'Style/Encoding',
-        parameter: 'AutoCorrectEncodingComment',
-        alternative: 'Style/Encoding no longer supports styles. ' \
-                     'The "never" behavior is always assumed.'
-      },
-      {
-        cop: 'Style/IfUnlessModifier',
-        parameter: 'MaxLineLength',
-        alternative:
-          '`Style/IfUnlessModifier: MaxLineLength` has been removed. Use ' \
-          '`Metrics/LineLength: Max` instead'
-      },
-      {
-        cop: 'Style/SpaceAroundOperators',
-        parameter: 'MultiSpaceAllowedForOperators',
-        alternative: 'If your intention was to allow extra spaces ' \
-                     'for alignment, please use AllowForAlignment: ' \
-                     'true instead.'
-      },
-      {
-        cop: 'Style/WhileUntilModifier',
-        parameter: 'MaxLineLength',
-        alternative:
-          '`Style/WhileUntilModifier: MaxLineLength` has been removed. Use ' \
-          '`Metrics/LineLength: Max` instead'
-      },
-      {
-        cop: 'AllCops',
-        parameter: 'RunRailsCops',
-        alternative: "Use the following configuration instead:\n" \
-                     "Rails:\n  Enabled: true"
-      },
-      {
-        cop: 'Layout/CaseIndentation',
-        parameter: 'IndentWhenRelativeTo',
-        alternative: '`IndentWhenRelativeTo` has been renamed to ' \
-                     '`EnforcedStyle`'
-      },
-      {
-        cop: 'Lint/BlockAlignment',
-        parameter: 'AlignWith',
-        alternative: '`AlignWith` has been renamed to ' \
-                     '`EnforcedStyleAlignWith`'
-      },
-      {
-        cop: 'Layout/BlockAlignment',
-        parameter: 'AlignWith',
-        alternative: '`AlignWith` has been renamed to ' \
-                     '`EnforcedStyleAlignWith`'
-      },
-      {
-        cop: 'Lint/EndAlignment',
-        parameter: 'AlignWith',
-        alternative: '`AlignWith` has been renamed to ' \
-                     '`EnforcedStyleAlignWith`'
-      },
-      {
-        cop: 'Layout/EndAlignment',
-        parameter: 'AlignWith',
-        alternative: '`AlignWith` has been renamed to ' \
-                     '`EnforcedStyleAlignWith`'
-      },
-      {
-        cop: 'Lint/DefEndAlignment',
-        parameter: 'AlignWith',
-        alternative: '`AlignWith` has been renamed to ' \
-                     '`EnforcedStyleAlignWith`'
-      },
-      {
-        cop: 'Layout/DefEndAlignment',
-        parameter: 'AlignWith',
-        alternative: '`AlignWith` has been renamed to ' \
-                     '`EnforcedStyleAlignWith`'
-      },
-      {
-        cop: 'Rails/UniqBeforePluck',
-        parameter: 'EnforcedMode',
-        alternative: '`EnforcedMode` has been renamed to ' \
-                     '`EnforcedStyle`'
-      }
-    ].freeze
 
     attr_reader :loaded_path
 
@@ -513,9 +322,14 @@ module RuboCop
     end
 
     def obsolete_parameters
-      OBSOLETE_PARAMETERS.map do |params|
-        obsolete_parameter_message(params[:cop], params[:parameter],
-                                   params[:alternative])
+      config_file = File.join(
+        ConfigLoader::RUBOCOP_HOME, 'config', 'obsolete_parameters.yml'
+      )
+      config = YAMLLoader.yaml_safe_load_file(config_file)
+
+      config.map do |params|
+        obsolete_parameter_message(params['cop'], params['parameter'],
+                                   params['alternative'])
       end
     end
 
@@ -528,7 +342,12 @@ module RuboCop
     end
 
     def obsolete_cops
-      OBSOLETE_COPS.map do |cop_name, message|
+      config_file = File.join(
+        ConfigLoader::RUBOCOP_HOME, 'config', 'obsolete_cops.yml'
+      )
+      config = YAMLLoader.yaml_safe_load_file(config_file)
+
+      config.map do |cop_name, message|
         next unless key?(cop_name) || key?(Cop::Badge.parse(cop_name).cop_name)
         message + "\n(obsolete configuration found in #{smart_loaded_path}," \
                    ' please update it)'

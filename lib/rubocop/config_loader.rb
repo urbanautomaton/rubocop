@@ -8,6 +8,30 @@ module RuboCop
   class ConfigNotFoundError < Error
   end
 
+  # This class is a utility wrapper that provides safe YAML loading where
+  # available, falling back to unsafe loading if absolutely necessary.
+  class YAMLLoader
+    def self.yaml_safe_load_file(filename)
+      yaml_safe_load(
+        IO.read(filename, encoding: Encoding::UTF_8),
+        filename
+      )
+    end
+
+    def self.yaml_safe_load(yaml_code, filename)
+      if YAML.respond_to?(:safe_load) # Ruby 2.1+
+        if defined?(SafeYAML) && SafeYAML.respond_to?(:load)
+          SafeYAML.load(yaml_code, filename,
+                        whitelisted_tags: %w[!ruby/regexp])
+        else
+          YAML.safe_load(yaml_code, [Regexp, Symbol], [], false, filename)
+        end
+      else
+        YAML.load(yaml_code, filename) # rubocop:disable Security/YAMLLoad
+      end
+    end
+  end
+
   # This class represents the configuration of the RuboCop application
   # and all its cops. A Config is associated with a YAML configuration
   # file from which it was read. Several different Configs can be used
@@ -156,7 +180,7 @@ module RuboCop
 
       def load_yaml_configuration(absolute_path)
         yaml_code = read_file(absolute_path)
-        hash = yaml_safe_load(yaml_code, absolute_path) || {}
+        hash = YAMLLoader.yaml_safe_load(yaml_code, absolute_path) || {}
 
         puts "configuration from #{absolute_path}" if debug?
 
@@ -175,19 +199,6 @@ module RuboCop
       rescue Errno::ENOENT
         raise ConfigNotFoundError,
               "Configuration file not found: #{absolute_path}"
-      end
-
-      def yaml_safe_load(yaml_code, filename)
-        if YAML.respond_to?(:safe_load) # Ruby 2.1+
-          if defined?(SafeYAML) && SafeYAML.respond_to?(:load)
-            SafeYAML.load(yaml_code, filename,
-                          whitelisted_tags: %w[!ruby/regexp])
-          else
-            YAML.safe_load(yaml_code, [Regexp, Symbol], [], false, filename)
-          end
-        else
-          YAML.load(yaml_code, filename) # rubocop:disable Security/YAMLLoad
-        end
       end
     end
 

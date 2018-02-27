@@ -1,0 +1,103 @@
+Style/TrailingComma: >-
+  The `Style/TrailingComma` cop no longer exists. Please use
+  `Style/TrailingCommaInArguments`, `Style/TrailingCommaInArrayLiteral`, and/or
+  `Style/TrailingCommaInHashLiteral` instead.
+
+Style/TrailingCommaInLiteral: >-
+  The `Style/TrailingCommaInLiteral` cop no longer exists.  Please use
+  `Style/TrailingCommaInArrayLiteral` and/or `Style/TrailingCommaInHashLiteral`
+  instead.
+
+Rails/DefaultScope: >-
+  The `Rails/DefaultScope` cop no longer exists.
+
+Lint/InvalidCharacterLiteral: >-
+  The `Lint/InvalidCharacterLiteral` cop has been removed since it was never
+  being actually triggered.
+
+Style/SingleSpaceBeforeFirstArg: >-
+  The `Style/SingleSpaceBeforeFirstArg` cop has been renamed to
+  `Layout/SpaceBeforeFirstArg`.
+
+Lint/RescueWithoutErrorClass: >-
+  The `Lint/RescueWithoutErrorClass` cop has been replaced by
+  `Style/RescueStandardError`.
+
+Lint/SpaceBeforeFirstArg: >-
+  The `Lint/SpaceBeforeFirstArg` cop has been removed, since it was a duplicate
+  of `Layout/SpaceBeforeFirstArg`. Please use `Layout/SpaceBeforeFirstArg`
+  instead.
+
+Layout/SpaceAfterControlKeyword: >-
+  The `Layout/SpaceAfterControlKeyword` cop has been removed. Please use
+  `Layout/SpaceAroundKeyword` instead.
+
+Layout/SpaceBeforeModifierKeyword: >-
+  The `Layout/SpaceBeforeModifierKeyword` cop has been removed. Please use
+  `Layout/SpaceAroundKeyword` instead.
+
+Style/SpaceAfterControlKeyword: >-
+  The `Style/SpaceAfterControlKeyword` cop has been removed. Please use
+  `Layout/SpaceAroundKeyword` instead.
+
+Style/SpaceBeforeModifierKeyword: >-
+  The `Style/SpaceBeforeModifierKeyword` cop has been removed. Please use
+  `Layout/SpaceAroundKeyword` instead.
+
+Style/MethodCallParentheses: >-
+  The `Style/MethodCallParentheses` cop has been renamed to
+  `Style/MethodCallWithoutArgsParentheses`.
+
+Lint/Eval: >-
+  The `Lint/Eval` cop has been renamed to `Security/Eval`.
+
+Style/DeprecatedHashMethods: >-
+  The `Style/DeprecatedHashMethods` cop has been renamed to
+  `Style/PreferredHashMethods`.
+
+Style/AccessorMethodName: >-
+  The `Style/AccessorMethodName` cop has been moved to
+  `Naming/AccessorMethodName`.
+
+Style/AsciiIdentifiers: >-
+  The `Style/AsciiIdentifiers` cop has been moved to
+  `Naming/AccessorMethodName`.
+
+Style/OpMethod: >-
+  The `Style/OpMethod` cop has been renamed and moved to
+  `Naming/BinaryOperatorParameterName`.
+
+Style/ClassAndModuleCamelCase: >-
+  The `Style/ClassAndModuleCamelCase` cop has been renamed to
+  `Naming/ClassAndModuleCamelCase`.
+
+Style/ConstantName: >-
+  The `Style/ConstantName` cop has been renamed to `Naming/ConstantName`.
+
+Style/FileName: >-
+  The `Style/FileName` cop has been renamed to `Naming/FileName`.
+
+Style/MethodName: >-
+  The `Style/MethodName` cop has been renamed to `Naming/MethodName`.
+
+Style/PredicateName: >-
+  The `Style/PredicateName` cop has been renamed to `Naming/PredicateName`.
+
+Style/VariableName: >-
+  The `Style/VariableName` cop has been renamed to `Naming/VariableName`.
+
+Style/VariableNumber: >-
+  The `Style/VariableNumber` cop has been renamed to `Naming/VariableNumber`.
+
+Lint/BlockAlignment: >-
+  The `Lint/BlockAlignment` cop has been renamed to `Layout/BlockAlignment`.
+
+Lint/EndAlignment: >-
+    The `Lint/EndAlignment` cop has been renamed to `Layout/EndAlignment`.
+
+Lint/DefEndAlignment: >-
+  The `Lint/DefEndAlignment` cop has been renamed to `Layout/DefEndAlignment`.
+
+Performance/HashEachMethods: >-
+  The `Performance/HashEachMethods` cop has been removed since it no longer
+  provides performance benefits in modern rubies.

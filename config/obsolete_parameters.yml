@@ -1,0 +1,88 @@
+- cop: Layout/SpaceAroundOperators
+  parameter: MultiSpaceAllowedForOperators
+  alternative: >-
+    If your intention was to allow extra spaces for alignment, please
+    use AllowForAlignment: true instead.
+
+- cop: Style/Encoding
+  parameter: EnforcedStyle
+  alternative: >-
+    Style/Encoding no longer supports styles. The "never" behavior is
+    always assumed.
+
+- cop: Style/Encoding
+  parameter: SupportedStyles
+  alternative: >-
+    Style/Encoding no longer supports styles. The "never" behavior is
+    always assumed.
+
+- cop: Style/Encoding
+  parameter: AutoCorrectEncodingComment
+  alternative: >-
+    Style/Encoding no longer supports styles. The "never" behavior is
+    always assumed.
+
+- cop: Style/IfUnlessModifier
+  parameter: MaxLineLength
+  alternative: >-
+    `Style/IfUnlessModifier: MaxLineLength` has been removed. Use `Metrics/LineLength:
+    Max` instead
+
+- cop: Style/SpaceAroundOperators
+  parameter: MultiSpaceAllowedForOperators
+  alternative: >-
+    If your intention was to allow extra spaces for alignment, please
+    use AllowForAlignment: true instead.
+
+- cop: Style/WhileUntilModifier
+  parameter: MaxLineLength
+  alternative: >-
+    `Style/WhileUntilModifier: MaxLineLength` has been removed. Use `Metrics/LineLength:
+    Max` instead
+
+- cop: AllCops
+  parameter: RunRailsCops
+  alternative:
+    Use the following configuration instead:
+    Rails:
+      Enabled: true
+
+- cop: Layout/CaseIndentation
+  parameter: IndentWhenRelativeTo
+  alternative: >-
+    `IndentWhenRelativeTo` has been renamed to `EnforcedStyle`
+
+- cop: Lint/BlockAlignment
+  parameter: AlignWith
+  alternative: >-
+    `AlignWith` has been renamed to `EnforcedStyleAlignWith`
+
+- cop: Layout/BlockAlignment
+  parameter: AlignWith
+  alternative: >-
+    `AlignWith` has been renamed to `EnforcedStyleAlignWith`
+
+- cop: Lint/EndAlignment
+  parameter: AlignWith
+  alternative: >-
+    `AlignWith` has been renamed to `EnforcedStyleAlignWith`
+
+- cop: Layout/EndAlignment
+  parameter: AlignWith
+  alternative: >-
+    `AlignWith` has been renamed to `EnforcedStyleAlignWith`
+
+- cop: Lint/DefEndAlignment
+  parameter: AlignWith
+  alternative: >-
+    `AlignWith` has been renamed to `EnforcedStyleAlignWith`
+
+- cop: Layout/DefEndAlignment
+  parameter: AlignWith
+  alternative: >-
+    `AlignWith` has been renamed to `EnforcedStyleAlignWith`
+
+- cop: Rails/UniqBeforePluck
+  parameter: EnforcedMode
+  alternative: >-
+    `EnforcedMode` has been renamed to `EnforcedStyle`
