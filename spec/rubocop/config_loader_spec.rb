@@ -878,51 +878,6 @@ RSpec.describe RuboCop::ConfigLoader do
       expect(configuration.to_h).to eq({})
     end
 
-    context 'when SafeYAML is required' do
-      before do
-        create_file(configuration_path, <<-YAML.strip_indent)
-          Style/WordArray:
-            WordRegex: !ruby/regexp '/\\A[\\p{Word}]+\\z/'
-        YAML
-      end
-
-      context 'when it is fully required' do
-        it 'de-serializes Regexp class' do
-          in_its_own_process_with('safe_yaml') do
-            configuration = described_class.load_file('.rubocop.yml')
-
-            word_regexp = configuration['Style/WordArray']['WordRegex']
-            expect(word_regexp.is_a?(::Regexp)).to be(true)
-          end
-        end
-      end
-
-      context 'when safe_yaml is required without monkey patching' do
-        it 'de-serializes Regexp class' do
-          in_its_own_process_with('safe_yaml/load') do
-            configuration = described_class.load_file('.rubocop.yml')
-
-            word_regexp = configuration['Style/WordArray']['WordRegex']
-            expect(word_regexp.is_a?(::Regexp)).to be(true)
-          end
-        end
-
-        context 'and SafeYAML.load is private' do
-          # According to issue #2935, SafeYAML.load can be private in some
-          # circumstances.
-          it 'does not raise private method load called for SafeYAML:Module' do
-            in_its_own_process_with('safe_yaml/load') do
-              SafeYAML.send :private_class_method, :load
-              configuration = described_class.load_file('.rubocop.yml')
-
-              word_regexp = configuration['Style/WordArray']['WordRegex']
-              expect(word_regexp.is_a?(::Regexp)).to be(true)
-            end
-          end
-        end
-      end
-    end
-
     context 'when the file does not exist' do
       let(:configuration_path) { 'file_that_does_not_exist.yml' }
 
